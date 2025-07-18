@@ -12,16 +12,20 @@ export default function CustomTabs({ myCat = [], setInitCat, initCat, priceStep,
             </div>
             <div className="priceInput">
                 <label>Filter by price range:</label>
-                <input type="range" min="1" max="3" value={priceStep} onChange={(e) => setPriceStep(Number(e.target.value))} />
+                <input type="range" min="0" max="3" value={priceStep} onChange={(e) => setPriceStep(Number(e.target.value))} />
                 <div>
-                    {(() => {
-                        const { min, max } = getPriceRange(priceStep);
-                        return (
-                            <span>
-                                {min}$ - {max}$
-                            </span>
-                        );
-                    })()}
+                    {priceStep === 0 ? (
+                        <span>0$ - 120$</span>
+                    ) : (
+                        (() => {
+                            const { min, max } = getPriceRange(priceStep);
+                            return (
+                                <span>
+                                    {min}$ - {max}$
+                                </span>
+                            );
+                        })()
+                    )}
                 </div>
             </div>
         </div>

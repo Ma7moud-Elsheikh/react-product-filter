@@ -6,7 +6,7 @@ export default function ProductSection() {
     const [myCat, setMyCat] = React.useState([]);
     const [initCat, setInitCat] = React.useState('all');
     const [myProducts, setMyProducts] = React.useState(products);
-    const [priceStep, setPriceStep] = React.useState(1); // 1 = first range
+    const [priceStep, setPriceStep] = React.useState(0);
 
     function handleCat() {
         const uniqueCat = ['all', ...new Set(products.map((data) => data.category))];
